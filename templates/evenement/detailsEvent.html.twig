@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+		<div class="bg_gray">
+			<div class="container margin_60_40">
+			<div class="main_title center">
+				<span><em></em></span>
+				<h2>{{ evenement.nom }}</h2>
+			</div>
+
+			<div class="row justify-content-center align-items-center add_bottom_15">
+					<div class="col-lg-5">
+						<div class="box_about">
+							<p> Lieu : {{ evenement.lieu }}</p>
+							<p class="lead">Description :{{ evenement.description }}</p>
+							<p class="lead">Debut evenement  :{{ evenement.dateDe ? evenement.dateDe|date('Y-m-d') : '' }}</p>
+							<p class="lead"> fin evenement:{{ evenement.dateFi ? evenement.dateFi|date('Y-m-d') : '' }}</p>
+							<p class="lead">nombre de place :{{ evenement.nbrPlace }}</p>
+
+							<a href="{{ path('participer_new', {'id': evenement.id}) }}" class="loc_open">participer</a>
+
+						</div>
+					</div>
+					<div class="col-lg-5 pl-lg-5 text-center d-none d-lg-block">
+							<img src="{{  asset('Upload/')}}{{ evenement.image }}" alt="" class="img-fluid" width="250" height="250">
+					</div>
+				</div>
+				<!-- /row -->
+				<!-- /row -->
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+
+
+{% endblock %}

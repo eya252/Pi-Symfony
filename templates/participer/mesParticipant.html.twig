@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bg_gray">
+        <div class="container margin_60_40">
+            <div class="main_title center">
+                <span><em></em></span>
+                <h2>Mes Participations</h2>
+            </div>
+            <!-- /main_title -->
+            {% for participer in participers %}
+
+                <div class="owl-carousel owl-theme categories_carousel">
+                    <div class="item">
+                            <img src="{{ asset('Upload/')}}{{ participer.idEvent.image }}" width="100"/> <br>
+                            <h3> Nom :{{ participer.idEvent.nom }}</h3>
+                            <small>Lieu :{{ participer.idEvent.lieu }}</small>
+
+
+                    </div>
+                    <a href="{{ path('participer_delete', {'id': participer.id}) }}">Delete</a>
+                    <a href="{{ path('participer_edit', {'id': participer.id}) }}">edit</a>
+                </div>
+            {% endfor %}
+
+            <!-- /carousel -->
+        </div>
+        <!-- /container -->
+    </div>
+{% endblock %}

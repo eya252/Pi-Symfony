@@ -1,0 +1,31 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Participer index{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emplacement</th>
+                <th>NbrePlace</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participer in participers %}
+            <tr>
+                <td>{{ participer.emplacement }}</td>
+                <td>{{ participer.nbrePlace }}</td>
+                <td> {{ participer.idUser.nom }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

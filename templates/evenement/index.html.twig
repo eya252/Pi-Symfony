@@ -1,0 +1,43 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Evenement List{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>NbrPlace</th>
+                <th>Lieu</th>
+                <th>Description</th>
+                <th>DateDe</th>
+                <th>DateFi</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.nom }}</td>
+                <td>{{ evenement.nbrPlace }}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.dateDe ? evenement.dateDe|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.dateFi ? evenement.dateFi|date('Y-m-d') : '' }}</td>
+                <td><img src="{{ asset('Upload/')}}{{ evenement.image }}" width="100"  /></td>
+                <td>
+                    <a href="{{ path('evenement_delete', {'id': evenement.id}) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ path('evenement_edit', {'id': evenement.id}) }}" class="btn btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

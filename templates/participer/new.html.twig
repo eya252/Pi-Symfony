@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Participer{% endblock %}
+
+{% block body %}
+    <div class="main">
+        <h6>Particper a l'evenement</h6>
+
+
+
+        <div class="form-group">
+            <label>Emplacement</label>
+            {{ form_start(form)  }}
+
+            {{ form_widget(form.emplacement, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.emplacement) }}
+        </div>
+        <div class="form-group">
+            <label>nombre de place a reserver </label>
+            {{ form_widget(form.nbrePlace, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.nbrePlace) }}
+        </div>
+        <div class="form-group">
+            <input class="btn_1 full-width" type="submit" value="Participer" id="submit-contact">
+        </div>
+        {{ form_end(form) }}
+
+
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}
