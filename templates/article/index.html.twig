@@ -1,0 +1,38 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Article List{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>DateW</th>
+                <th>Prix</th>
+                <th>Lieu</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.description }}</td>
+                <td>{{ article.dateW ? article.dateW|date('Y-m-d') : '' }}</td>
+                <td>{{ article.prix }}</td>
+                <td> {{ article.lieu }}</td>
+                <td><img src="{{ asset('Upload/')}}{{ article.image }}" width="100"  /></td>
+                <td>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('article_delete', {'id': article.id}) }}">Delete</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

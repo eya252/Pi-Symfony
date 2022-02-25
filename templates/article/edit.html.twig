@@ -1,0 +1,40 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form, {'attr': {'class': 'forms-sample'}}) }}
+    <div class="form-group">
+        <label>Titre</label>
+        {{ form_widget(form.titre, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.titre) }}
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.description) }}
+    </div>
+    <div class="form-group">
+        <label>Prix</label>
+        {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.prix) }}
+    </div>
+    <div class="form-group">
+        <label>Lieu</label>
+        {{ form_widget(form.lieu, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.lieu) }}
+    </div>
+    <div class="form-group">
+        <label>Image</label>
+        {{ form_widget(form.file, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.file) }}
+    </div>
+    <input type="submit" value="Enregistrer" class="btn btn-success" formnovalidate/>
+
+    {{ form_end(form) }}
+
+    </div>
+
+
+{% endblock %}

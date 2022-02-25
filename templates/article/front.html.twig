@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="bg_gray">
+        <div class="container margin_60_40">
+            <div class="main_title center">
+                <span><em></em></span>
+                <h2>Nos Articles</h2>
+            </div>
+            <!-- /main_title -->
+            <div class="owl-carousel owl-theme categories_carousel">
+                {% for article in articles %}
+                    <div class="item">
+                        <a href="#0">
+                            <img src="{{ asset('Upload/')}}{{ article.image }}" width="100"/> <br>
+                            <h3> Nom :{{ article.titre }}</h3>
+                            <small>Lieu :{{ article.lieu }}</small>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- /carousel -->
+        </div>
+        <!-- /container -->
+    </div>
+{% endblock %}
